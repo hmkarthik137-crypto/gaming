@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NexusPlay</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+<div class="head-left" > 
+  <img src="images.jpeg" alt="logo">
+  <h2>NEXUS GAMING</h2>
+</div>
+<div>
+<a href="profile.html">Profile</a>    
+<a href="index.html">Home</a>
+<a href="games.html">Games</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="admin.html">Admin</a>
+<button class="logout-btn" onclick="logoutUser()">
+Logout
+</button>
+</div>
+</nav>
+
+<section class="hero">
+
+    <!-- Slides -->
+    <div class="slides">
+
+        <div class="slide active">
+            <img src="images (1).jpeg">
+        </div>
+
+        <div class="slide">
+            <img src="360_F_498045890_KdYplJs6N6YfGNu0qr9MYwY4jVj4rd5M.jpg">
+        </div>
+
+        <div class="slide">
+            <img src="123456789.jpeg">
+        </div>
+
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Content -->
+    <div class="hero-content">
+
+        <h1>
+            NEXT LEVEL <span>GAMING</span>
+        </h1>
+
+        <p>
+            Discover, play and compete in the ultimate gaming universe
+        </p>
+
+        <div class="buttons">
+
+    <a href="games.html" class="btn-primary">
+        Browse Games
+    </a>
+
+    <a href="signin.html" class="btn-secondary">
+        Join Free
+    </a>
+
+</div>
+
+    </div>
+
+    <!-- Arrows -->
+    <button class="arrow prev">&#10094;</button>
+    <button class="arrow next">&#10095;</button>
+
+</section>
+
+
+
+<section>
+<h2 class="section-title">FEATURED GAMES</h2>
+<div id="featuredGames" class="game-grid"></div>
+</section>
+
+<script src="js/script.js"></script>
+<script src="js/games.js"></script>
+<script>
+
+if(localStorage.getItem("isLoggedIn") !== "true"){
+
+    window.location.href = "login.html";
+
+}
+
+</script>
+</body>
+</html>
