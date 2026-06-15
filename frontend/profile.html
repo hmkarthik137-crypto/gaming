@@ -1,12 +1,31 @@
-<link rel="stylesheet" href="css/style.css">
-<h1>User Profile</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+</head>
+<body>
 
 <div class="profile-card">
+    <img src="images/user.jpg" width="120">
 
-    <h2 id="profileName"></h2>
+    <h2 id="name"></h2>
+    <p id="email"></p>
 
-    <p id="profileEmail"></p>
-
+    <button onclick="logout()">Logout</button>
 </div>
 
-<script src="js/profile.js"></script>
+<script>
+document.getElementById("name").innerHTML =
+localStorage.getItem("username");
+
+document.getElementById("email").innerHTML =
+localStorage.getItem("email");
+
+function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

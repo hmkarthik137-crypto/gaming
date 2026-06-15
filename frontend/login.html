@@ -259,8 +259,12 @@ document.getElementById("loginForm")
 
     alert("Login Successful");
 
-    // Redirect to homepage
-    window.location.href = "index.html";
+function login() {
+    localStorage.setItem("username", "Karthik");
+    localStorage.setItem("email", "karthik@gmail.com");
+
+    window.location.href = "profile.html";
+}
 
 });
 

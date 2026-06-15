@@ -11,16 +11,17 @@
   <img src="images.jpeg" alt="logo">
   <h2>NEXUS GAMING</h2>
 </div>
-<div>
-<a href="profile.html">Profile</a>    
-<a href="index.html">Home</a>
-<a href="games.html">Games</a>
-<a href="dashboard.html">Dashboard</a>
-<a href="admin.html">Admin</a>
-<button class="logout-btn" onclick="logoutUser()">
+<ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="games.html">Games</a></li>
+    <li><a href="cart.html" class="watchlist">Wishlist</a></li>
+  </ul>
+
+    <button class="logout-btn" onclick="logoutUser()">
 Logout
 </button>
-</div>
+  </div>
+</nav>
 </nav>
 
 <section class="hero">
@@ -93,6 +94,19 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
 
 }
 
+</script>
+<script>
+function openProfile() {
+
+    const user = localStorage.getItem("username");
+
+    if(user){
+        window.location.href = "profile.html";
+    }else{
+        window.location.href = "login.html";
+    }
+
+}
 </script>
 </body>
 </html>

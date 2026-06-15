@@ -453,5 +453,15 @@ function removeCart(id){
     loadCart();
 
 }
+document.getElementById("profileBtn").addEventListener("click", () => {
 
+    const user = localStorage.getItem("username");
+
+    if(user){
+        window.location.href = "profile.html";
+    }else{
+        window.location.href = "login.html";
+    }
+
+});
 

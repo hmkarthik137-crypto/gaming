@@ -4,6 +4,7 @@ dotenv.config({ path: "./.env" });
 import express from "express";
 import cors from "cors";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 
 import connectDB from "./config/db.js";
@@ -40,15 +41,27 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Frontend folder
-const frontendPath = path.join(__dirname, "../frontend");
+const frontendPath = path.resolve(__dirname, "../frontend");
+const indexPath = path.join(frontendPath, "index.html");
 
-// Serve frontend
-app.use(express.static(frontendPath));
+if (fs.existsSync(frontendPath)) {
+  app.use(express.static(frontendPath));
 
-// Home Route
-app.get("/", (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
-});
+  // Home / catch-all route for frontend client-side navigation
+  app.get("*", (req, res, next) => {
+    if (req.path.startsWith("/api/")) {
+      return next();
+    }
+
+    if (fs.existsSync(indexPath)) {
+      return res.sendFile(indexPath);
+    }
+
+    res.status(404).send("Frontend index file not found");
+  });
+} else {
+  console.warn(`Frontend folder not found at ${frontendPath}. API routes are still available.`);
+}
 
 // Start Server
 const PORT = process.env.PORT || 5000;
