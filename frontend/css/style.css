@@ -333,7 +333,40 @@ body{
     height:100%;
     position:relative;
 }
+.logout-btn{
+    background: linear-gradient(
+        135deg,
+        #ff3b5c,
+        #ff0055
+    );
 
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 15px;
+
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 0 15px rgba(255,0,85,0.5),
+        0 0 30px rgba(255,0,85,0.3);
+}
+
+.logout-btn:hover{
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 20px rgba(255,0,85,0.8),
+        0 0 40px rgba(255,0,85,0.6);
+}
+
+.logout-btn:active{
+    transform: scale(0.98);
+}
 .slide{
     position:absolute;
     width:100%;
