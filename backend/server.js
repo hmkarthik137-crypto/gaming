@@ -48,10 +48,9 @@ if (fs.existsSync(frontendPath)) {
   app.use(express.static(frontendPath));
 
   // Home / catch-all route for frontend client-side navigation
-  app.get("*", (req, res, next) => {
-    if (req.path.startsWith("/api/")) {
-      return next();
-    }
+ app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
 
     if (fs.existsSync(indexPath)) {
       return res.sendFile(indexPath);
