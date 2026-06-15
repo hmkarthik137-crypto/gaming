@@ -1431,3 +1431,33 @@ body{
     padding:12px 25px;
     border:1px solid rgba(255,255,255,.1);
 }
+.nav-link{
+    color:#00e5ff;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    padding:12px 28px;
+    border-radius:15px;
+    background:#111827;
+
+    box-shadow:
+        inset 0 0 10px rgba(0,229,255,.2),
+        0 0 15px rgba(0,229,255,.3);
+
+    transition:.4s;
+}
+
+.nav-link:hover{
+    color:white;
+    background:linear-gradient(
+        90deg,
+        #00d4ff,
+        #7c3aed
+    );
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 20px #00d4ff,
+        0 0 40px #7c3aed;
+}
