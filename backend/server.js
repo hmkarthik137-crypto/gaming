@@ -48,16 +48,10 @@ if (fs.existsSync(frontendPath)) {
   app.use(express.static(frontendPath));
 
   // Home / catch-all route for frontend client-side navigation
- app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+app.get("/", (req, res) => {
+    const indexPath = path.join(__dirname, "../frontend/index.html");
+    return res.sendFile(indexPath);
 });
-
-    if (fs.existsSync(indexPath)) {
-      return res.sendFile(indexPath);
-    }
-
-    res.status(404).send("Frontend index file not found");
-  });
 } else {
   console.warn(`Frontend folder not found at ${frontendPath}. API routes are still available.`);
 }
